@@ -1,102 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* CSS Styles */
+        /* CSS VARIABLES */
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f4f4f4;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-color: #764ba2;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
             --text-color: #333;
+            --text-light: #666;
         }
 
+        /* RESET & BASE STYLES */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        /* Container */
+        /* KEYFRAME ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes headerSlide {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        /* CONTAINER */
         .container {
-            width: 80%;
+            max-width: 900px;
             margin: auto;
-            overflow: hidden;
             padding: 20px;
+            /* Animation applied to main content */
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0; /* Hidden initially until animation starts */
+            animation-delay: 0.3s; /* Slight delay after header */
         }
 
-        /* Header */
+        /* HEADER DESIGN */
         header {
-            background: var(--primary-color);
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: 3px solid var(--accent-color);
+            background: var(--primary-gradient);
+            color: white;
+            padding: 60px 20px;
             text-align: center;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: headerSlide 0.8s ease-out;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         header p {
+            margin-top: 10px;
             font-size: 1.2em;
-            font-style: italic;
+            opacity: 0.9;
         }
 
-        /* Profile Image Section (Optional) */
+        /* PROFILE IMAGE PLACEHOLDER */
+        .profile-img-container {
+            text-align: center;
+            margin-top: -50px; /* Pulls image up into header */
+            margin-bottom: 30px;
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
         .profile-img {
-            display: block;
-            margin: 20px auto;
             width: 150px;
             height: 150px;
-            border-radius: 50%;
             background-color: #ddd;
-            /* Placeholder color */
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             object-fit: cover;
-            border: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
         }
 
-        /* Sections */
+        .profile-img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* CARD DESIGN */
         .card {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid transparent;
+        }
+
+        /* Hover effect for cards */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent-color);
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
 
-        /* Biodata Table */
+        h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-color);
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        /* BIODATA TABLE */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
         }
 
         td {
-            padding: 10px;
+            padding: 12px 0;
             border-bottom: 1px solid #eee;
+            color: var(--text-light);
         }
 
         td:first-child {
-            font-weight: bold;
-            width: 30%;
+            font-weight: 600;
+            color: var(--text-color);
+            width: 35%;
         }
 
-        /* Social Activities Tags */
+        /* TAGS DESIGN */
         .tags {
             display: flex;
             flex-wrap: wrap;
@@ -104,119 +159,149 @@
         }
 
         .tag {
-            background: var(--accent-color);
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
+            background: rgba(118, 75, 162, 0.1); /* Transparent accent */
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 25px;
             font-size: 0.9em;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+            cursor: default;
         }
 
-        /* Social Links */
+        .tag:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* ACTIVITY LIST */
+        ul.activity-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.activity-list li {
+            background: #fdfdfd;
+            border-left: 3px solid #ddd;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        ul.activity-list li:hover {
+            border-left-color: var(--accent-color);
+        }
+
+        /* SOCIAL LINKS */
         .social-links {
-            text-align: center;
-            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .social-links a {
+        .social-btn {
             text-decoration: none;
-            color: #fff;
-            background-color: var(--primary-color);
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background 0.3s;
+            color: white;
+            background: var(--primary-gradient);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(118, 75, 162, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .social-links a:hover {
-            background-color: var(--accent-color);
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(118, 75, 162, 0.4);
         }
 
         footer {
-            background-color: var(--primary-color);
-            color: #fff;
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.9em;
         }
     </style>
 </head>
-
 <body>
 
     <header>
-        <div class="container">
-            <h1>[ADITYA NAIK]</h1>
-            <p>Professional Portfolio & Personal Bio</p>
+        <div>
+            <h1>[Your Name Here]</h1>
+            <p>Biodata & Social Portfolio</p>
         </div>
     </header>
 
     <div class="container">
+        
+        <div class="profile-img-container">
+            <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
+        </div>
+
         <section class="card">
-            <h2>Biodata</h2>
+            <h2>Personal Details</h2>
             <table>
                 <tr>
-                    <td>Name</td>
-                    <td>[Aditya Naik ]</td>
+                    <td>Full Name</td>
+                    <td>[Enter Name]</td>
                 </tr>
                 <tr>
                     <td>Date of Birth</td>
-                    <td>[01/01/2006]</td>
+                    <td>[DD/MM/YYYY]</td>
                 </tr>
                 <tr>
                     <td>Location</td>
-                    <td>[Belagavi, India]</td>
+                    <td>[City, Country]</td>
                 </tr>
                 <tr>
                     <td>Education</td>
-                    <td>[BE], [VTU]</td>
+                    <td>[Degree], [University]</td>
                 </tr>
                 <tr>
-                    <td>Occupation</td>
-                    <td>[Student]</td>
-                </tr>
-                <tr>
-                    <td>Languages Known</td>
-                    <td>English, [kannada ,Hindi]</td>
+                    <td>Profession</td>
+                    <td>[Job Title]</td>
                 </tr>
             </table>
         </section>
 
         <section class="card">
-            <h2>Social Activities & Interests</h2>
-            <p>I am actively involved in the following social initiatives and community activities:</p>
-
+            <h2>Social Impact</h2>
+            <p style="margin-bottom: 20px; color: #666;">
+                Passionate about community building and social welfare. Below are the causes I actively support:
+            </p>
+            
             <div class="tags">
-                <span class="tag">Community Volunteering</span>
-                <span class="tag">Environmental Awareness</span>
-                <span class="tag">Tech Workshops</span>
-                <span class="tag">Charity Drives</span>
-                <span class="tag">Public Speaking</span>
+                <span class="tag">🌱 Environment</span>
+                <span class="tag">🤝 Volunteering</span>
+                <span class="tag">💻 Tech Education</span>
+                <span class="tag">🩸 Blood Donation</span>
+                <span class="tag">📢 Public Awareness</span>
             </div>
 
-            <h3>Recent Activity</h3>
-            <ul>
-                <li><strong>[2023]:</strong> Organized a local cleanup drive.</li>
-                <li><strong>[2022]:</strong> Mentored students in web development.</li>
-                <li><strong>[2025]:</strong> Participated in the annual city marathon for charity.</li>
+            <h3 style="margin-top: 25px; color: #444;">Timeline of Activities</h3>
+            <ul class="activity-list">
+                <li><strong>2024:</strong> Led a "Clean City" drive with 50+ volunteers.</li>
+                <li><strong>2023:</strong> Conducted free coding workshops for underprivileged students.</li>
+                <li><strong>2022:</strong> Organized a local food donation camp during festivals.</li>
             </ul>
         </section>
 
-        <section class="card">
-            <h2>Connect with Me</h2>
+        <section class="card" style="text-align: center;">
+            <h2>Let's Connect</h2>
+            <p style="margin-bottom: 25px;">Find me on these platforms:</p>
             <div class="social-links">
-                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-                <a href="https://twitter.com/yourusername" target="_blank">Twitter/X</a>
-                <a href="mailto:your.email@example.com">Email Me</a>
+                <a href="#" class="social-btn">LinkedIn</a>
+                <a href="#" class="social-btn">GitHub</a>
+                <a href="#" class="social-btn">Instagram</a>
+                <a href="mailto:email@example.com" class="social-btn">Email Me</a>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 [adityanaik_17]. Hosted on GitHub Pages.</p>
+        <p>Designed with ❤️ by [Your Name] | Hosted on GitHub Pages</p>
     </footer>
 
 </body>
-
 </html>
