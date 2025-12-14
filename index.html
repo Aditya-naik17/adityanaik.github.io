@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: 3px solid var(--accent-color);
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        /* Profile Image Section (Optional) */
+        .profile-img {
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            /* Placeholder color */
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+        }
+
+        /* Sections */
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        /* Biodata Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+
+        /* Social Activities Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--accent-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Social Links */
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>[Your Name Here]</h1>
+            <p>Professional Portfolio & Personal Bio</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="card">
+            <h2>Biodata</h2>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>[Aditya Naik ]</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>[01/01/2006]</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>[Belagavi, India]</td>
+                </tr>
+                <tr>
+                    <td>Education</td>
+                    <td>[BE], [VTU]</td>
+                </tr>
+                <tr>
+                    <td>Occupation</td>
+                    <td>[Student]</td>
+                </tr>
+                <tr>
+                    <td>Languages Known</td>
+                    <td>English, [kannada ,Hindi]</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Social Activities & Interests</h2>
+            <p>I am actively involved in the following social initiatives and community activities:</p>
+
+            <div class="tags">
+                <span class="tag">Community Volunteering</span>
+                <span class="tag">Environmental Awareness</span>
+                <span class="tag">Tech Workshops</span>
+                <span class="tag">Charity Drives</span>
+                <span class="tag">Public Speaking</span>
+            </div>
+
+            <h3>Recent Activity</h3>
+            <ul>
+                <li><strong>[Year]:</strong> Organized a local cleanup drive.</li>
+                <li><strong>[Year]:</strong> Mentored students in web development.</li>
+                <li><strong>[Year]:</strong> Participated in the annual city marathon for charity.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Connect with Me</h2>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://twitter.com/yourusername" target="_blank">Twitter/X</a>
+                <a href="mailto:your.email@example.com">Email Me</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 [adityanaik_17]. Hosted on GitHub Pages.</p>
+    </footer>
+
+</body>
+
+</html>
